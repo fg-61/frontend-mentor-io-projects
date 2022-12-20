@@ -1,5 +1,11 @@
 import Head from "next/head";
 import { MantineProvider } from "@mantine/core";
+import { Outfit } from "@next/font/google";
+
+const outfit = Outfit({
+  subsets: ["outfit"],
+  weight: ["400", "700"],
+});
 
 export default function App(props) {
   const { Component, pageProps } = props;
@@ -21,7 +27,9 @@ export default function App(props) {
           colorScheme: "light",
         }}
       >
-        <Component {...pageProps} />
+        <main className={outfit.className}>
+          <Component {...pageProps} />
+        </main>
       </MantineProvider>
     </>
   );
